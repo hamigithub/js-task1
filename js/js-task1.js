@@ -5,14 +5,14 @@
 
     function bbc(){
         for(var e=0;e<obj.length;e++){
-            obj[e].style.background="#fff";
+            obj[e].style.background="#ffa500";
         };
     }
     function ool(){
         var lo= Math.floor((Math.random()*obj.length));
         var le= Math.floor((Math.random()*obj.length));
         var li= Math.floor((Math.random()*obj.length));//三个变量用来装随机得到的三个小盒子的DOM；
-        if (lo!=le&&le!=li&&li!=lo){
+        if (lo!==le&&le!==li&&li!==lo){
             var str = "0123456789abcdef";//声明变量储存值为0-9、a-f，
             var t = "#";
             var y = "#";
@@ -41,18 +41,29 @@
 
     };
 
+var oBtn=document.getElementById('oBtn');
 var p;//在函数ool()外声明一个变量，用以把函数里面的setTimeout装起来给别的函数使用；全局变量
 
+
+var n=0;
 function lpl(){
+    if (n<1){
     clearInterval(p);
     p = setInterval("ool()",1000);
-
+    }
+    else {
+        return;
+    }
+    n++;
 }
+
 
 function out(){
     bbc();
     clearInterval(p);//终止计时器执行的函数；
+    n--;
 };//封装一个终止函数，onclick到button；
+
 
 
 
